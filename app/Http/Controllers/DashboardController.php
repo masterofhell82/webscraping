@@ -7,12 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller{
     
-        
+    /**
+     * [__construct]
+     */
     public function __construct(){
         $this -> middleware('auth');
     }
 
-
+    /**
+     * [index main]
+     */
     public function index()
     {
 

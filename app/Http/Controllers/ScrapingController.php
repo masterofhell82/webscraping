@@ -35,17 +35,23 @@ class ScrapingController extends Controller{
         // Go to the www.anundos.com  website
         $crawler = $client -> request('GET', 'https://www.anundos.com/');
 
-        //
+        //command to apply the filter and select by sections. Using Crawler
         $crawler -> filter("[class='separador'] > [class='bloque'] ") -> each( function (Crawler $node){
+            //It is divided into sections
             $section = $node -> children();
+            
+            //Section 1
             $sectionCat = $section -> eq(0);
+            
+            //The information is extracted from the first section.
             $category = $sectionCat -> filter('a') -> first() -> text();
             
+            //The database is consulted to see if the record exists.
             $query = DB::table('categories') 
                 ->where('name', '=', $category)
                 ->get() -> count();
         
-
+            //If the record is not present, category is added
             if ($query <= 0) {                   
                 
                 DB::table('categories')->insert([
@@ -55,14 +61,17 @@ class ScrapingController extends Controller{
 
             }                   
 
-
+            //Then, the id related to the category is extracted.
             $id_cat = DB::table('categories')
                 ->select('id')
                 ->where('name', '=', $category)
                 ->get();
 
+            //Section 2
             $sectionSubCat = $section -> eq(1);
 
+            //The information of the second part is extracted, the same is stored 
+            //in a variable that is converted into an array.
             $subCategories = $sectionSubCat -> filter('a') -> each(function ($nodeSub){  
                 
                 return $nodeSub -> text();
@@ -70,13 +79,15 @@ class ScrapingController extends Controller{
             });
 
           
+
             foreach ($subCategories as $subcat) {
                 
+                 //The database is consulted to see if the record exists.
                 $querySC = DB::table('sub_categories') 
                     ->where('name', '=', $subcat)
                     ->get() -> count();
 
-
+                //If the record is not present, subcategory is added
                 if ($querySC <= 0) {
 
                     DB::table('sub_categories')->insert([

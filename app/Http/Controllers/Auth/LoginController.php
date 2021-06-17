@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Auth;
-
+/**
+ * Class LoginController modify
+ */
 class LoginController extends Controller {
 	
 	
@@ -12,11 +14,19 @@ class LoginController extends Controller {
 		$this -> middleware('guest', ['only' => 'showLoginForm']);
 	}
 
+	/**
+	 * [showLoginForm validate that the user is logged in]
+	 * @return [type] [True]
+	 */
 	public function showLoginForm(){
 		return view('auth.login');
 	}
 
 
+	/**
+	 * [login Function to log in the user]
+	 * @return [type] [Return to the web you want to see, otherwise return to the form.]
+	 */
 	public function login(){
 		$credentials = $this -> validate(request(), [
 			'email' => 'email|required|string',
@@ -32,6 +42,10 @@ class LoginController extends Controller {
 			-> withInput(request(['email']));
 	}
 
+	/**
+	 * [logout Close session]
+	 * @return [type] [Return to login form]
+	 */
 	public function logout(){
 		
 		Auth::logout();
