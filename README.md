@@ -1,3 +1,27 @@
+## Instrucciones de Trabajo
+
+Se ha trabajado la parte del inicio de sessión el cual se realizo de forma personalizada 
+- <a href="https://github.com/masterofhell82/webscraping/blob/master/app/Http/Controllers/Auth/LoginController.php">app/Http/Controllers/Auth/LoginController.php</a>
+
+Vista del Login
+- <a href="https://github.com/masterofhell82/webscraping/blob/master/resources/views/auth/login.blade.php">resources/views/auth/login.blade.php</a>
+
+Controlador donde se realiza el WebScraping
+- <a href="https://github.com/masterofhell82/webscraping/blob/master/app/Http/Controllers/ScrapingController.php">app/Http/Controllers/ScrapingController.php</a>
+
+Controlador donde se muestran los datos - Dashboard
+- <a href="https://github.com/masterofhell82/webscraping/blob/master/app/Http/Controllers/DashboardController.php">app/Http/Controllers/DashboardController.php</a>
+	** Se destaca hacer un llamado a la base de datos y cargar los datos. 
+
+Vista del Dashboard 
+- <a href="https://github.com/masterofhell82/webscraping/blob/master/resources/views/dashboard.blade.php">resources/views/dashboard.blade.php</a>
+
+                                                     |lj|
+---------------------------------------------------- o-O -------------------------------------------------------------------
+                                                    ( - )
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
