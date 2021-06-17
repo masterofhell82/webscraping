@@ -16,9 +16,10 @@ Controlador donde se muestran los datos - Dashboard
 Vista del Dashboard 
 - <a href="https://github.com/masterofhell82/webscraping/blob/master/resources/views/dashboard.blade.php">resources/views/dashboard.blade.php</a>
 
-                                                     |lj|
----------------------------------------------------- o-O -------------------------------------------------------------------
-                                                    ( - )
+
+
+----------------------------------- o-O ---------------------------------------------
+                                                   
 
 
 
